@@ -8,33 +8,56 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* AI/Cyber Theme - Dark base with neon accents */
+    --background: 220 25% 8%;
+    --foreground: 210 20% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 25% 12%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Electric purple-blue theme */
+    --primary: 258 90% 66%;
+    --primary-foreground: 220 25% 8%;
+    --primary-glow: 270 100% 80%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 215 25% 20%;
+    --secondary-foreground: 210 20% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 215 25% 15%;
+    --muted-foreground: 210 15% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 195 100% 65%;
+    --accent-foreground: 220 25% 8%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 215 25% 25%;
+    --input: 215 25% 18%;
+    --ring: 258 90% 66%;
+
+    /* Custom AI theme colors */
+    --cyber-blue: 195 100% 65%;
+    --cyber-purple: 258 90% 66%;
+    --electric-glow: 270 100% 80%;
+    --neon-green: 120 100% 50%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--cyber-blue)));
+    --gradient-cyber: linear-gradient(45deg, hsl(var(--cyber-blue) / 0.8), hsl(var(--cyber-purple) / 0.8));
+    --gradient-glow: radial-gradient(circle at center, hsl(var(--electric-glow) / 0.3), transparent 70%);
+    
+    /* Shadows & Effects */
+    --shadow-cyber: 0 0 30px hsl(var(--primary) / 0.5);
+    --shadow-glow: 0 0 50px hsl(var(--electric-glow) / 0.4);
+    --shadow-intense: 0 0 80px hsl(var(--cyber-blue) / 0.6);
+
+    /* Animation timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -56,33 +79,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Enhanced dark theme for better contrast */
+    --background: 220 30% 6%;
+    --foreground: 210 20% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 25% 10%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 270 100% 75%;
+    --primary-foreground: 220 30% 6%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 215 25% 18%;
+    --secondary-foreground: 210 20% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 215 25% 12%;
+    --muted-foreground: 210 15% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 195 100% 70%;
+    --accent-foreground: 220 30% 6%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 75% 55%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 215 25% 20%;
+    --input: 215 25% 15%;
+    --ring: 270 100% 75%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +125,63 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background-attachment: fixed;
+  }
+
+  /* Cyber glow effects */
+  .cyber-glow {
+    box-shadow: var(--shadow-cyber);
+    transition: var(--transition-smooth);
+  }
+
+  .cyber-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  /* Animated background gradient */
+  .gradient-animate {
+    background: var(--gradient-cyber);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  /* Neon text effect */
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--electric-glow)), 
+                 0 0 20px hsl(var(--cyber-blue)), 
+                 0 0 30px hsl(var(--cyber-purple));
+  }
+
+  /* Pulse animation for important elements */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes pulseGlow {
+    from { 
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    to { 
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.8), 
+                  0 0 60px hsl(var(--electric-glow) / 0.4);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
   }
 }
